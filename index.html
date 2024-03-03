@@ -15,25 +15,25 @@
 <body>
     <!-- Header Section -->
     <Header class="container mx-auto">
-        <Nav class="mt-10 flex justify-between items-center">
+        <Nav class="mt-10 flex flex-col lg:flex-row justify-between items-center">
             <div>
                 <img src="./images/logo.png" alt="">
             </div>
-            <div class="mt-5 flex justify-center items-center gap-3">
-                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+            <div class="mt-5 flex justify-center items-center gap-2 lg:gap-4">
+                <div class="tooltip w-[52px] h-[52px]" data-tip="hello">
                     <button class="btn w-full h-full rounded-full">me</button>
                 </div>
-                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+                <div class="tooltip w-[52px] h-[52px]" data-tip="hello">
                     <button class="btn w-full h-full rounded-full">me</button>
                 </div>
-                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+                <div class="tooltip w-[52px] h-[52px]" data-tip="hello">
                     <button class="btn w-full h-full rounded-full">me</button>
                 </div>
-                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+                <div class="tooltip w-[52px] h-[52px]" data-tip="hello">
                     <button class="btn w-full h-full rounded-full">me</button>
                 </div>
                 <div>
-                    <button class="btn btn-primary text-xl px-8 font-bold text-center rounded-full">Sign In</button>
+                    <button class="btn btn-primary text-lg px-8 font-medium text-center rounded-full">Sign In</button>
                 </div>
             </div>
         </Nav>
@@ -41,23 +41,23 @@
         <div class="my-12 p-20 rounded-3xl bg-[#12132D] bg-no-repeat bg-cover"
             style="background-image: url('./images/bgbanner.png');">
             <div>
-                <div class="hero-content flex justify-between flex-col lg:flex-row-reverse">
-                    <div class="bg-white w-[420px] rounded-3xl p-12">
+                <div class="hero-content flex justify-center items-center lg:justify-between flex-col-reverse text-center lg:text-start lg:flex-row-reverse">
+                    <div class="bg-white w-[300px] lg:w-[380px] rounded-3xl mt-10 p-8">
                         <div class="flex justify-between mb-8">
-                            <h1 class="text-3xl font-bold">Registered Users</h1>
-                            <p class="text-3xl font-bold">01</p>
+                            <h1 class="text-2xl font-bold">Registered Users</h1>
+                            <p class="text-2xl font-bold">01</p>
                         </div>
                         <div class="flex justify-between mb-8">
-                            <h1 class="text-3xl font-bold">Forum</h1>
-                            <p class="text-3xl font-bold">01</p>
+                            <h1 class="text-2xl font-bold">Forum</h1>
+                            <p class="text-2xl font-bold">01</p>
                         </div>
                         <div class="flex justify-between mb-8">
-                            <h1 class="text-3xl font-bold">Topics</h1>
-                            <p class="text-3xl font-bold">01</p>
+                            <h1 class="text-2xl font-bold">Topics</h1>
+                            <p class="text-2xl font-bold">01</p>
                         </div>
                         <div class="flex justify-between">
-                            <h1 class="text-3xl font-bold">Replies</h1>
-                            <p class="text-3xl font-bold">01</p>
+                            <h1 class="text-2xl font-bold">Replies</h1>
+                            <p class="text-2xl font-bold">01</p>
                         </div>
                     </div>
                     <div>
@@ -65,10 +65,10 @@
                                 class="">ReTro</span>
                             Forum</h1>
                         <p class="mb-5 text-xl text-gray-300 font-medium"> Share your favorite opinion and win and wp
-                            <br>
+                            <br class="hidden sm:block">
                             forum coffee mug!
                         </p>
-                        <label class="input relative w-[80%] flex items-center gap-2">
+                        <label class="input relative w-full lg:w-[80%] flex items-center gap-2">
                             <input type="text" class="grow mr-32 pl-4" placeholder="Search here anything" />
                             <span
                                 class="rounded-xl flex justify-center items-center text-white text-lg font-medium text-center absolute right-0 top-0 bottom-0 bg-cyan-500 px-6 ">Search</span>
@@ -86,10 +86,10 @@
             <p class="text-xl my-3">Yes, you can run unit tests and view the results directly within the app. The <br>
                 integrated testing features allow for a streamlined.</p>
         </div>
-        <section class="flex justify-between">
-            <div>
+        <section class="flex justify-between flex-col lg:flex-row">
+            <div class="mb-12">
                 <!-- component -->
-                <div class="w-[60%] rounded-3xl shadow-lg p-10 border border-gray-300 bg-gray-100">
+                <div class="w-full lg:w-[70%] rounded-3xl shadow-lg p-10 border border-gray-300 bg-gray-100">
                     <div class="relative flex gap-4 items-start">
                         <div class="w-[80px] h-[80px] rounded-2xl bg-white mt-3">
                             <div class="indicator w-full h-full flex justify-center items-center">
@@ -161,15 +161,15 @@
         <!-- Join Our Forum Section -->
         <div class="my-12 p-16 rounded-3xl bg-[#12132D] bg-no-repeat bg-cover">
             <div class="hero">
-                <div class="hero-content flex-col lg:flex-row-reverse">
+                <div class="hero-content flex lg:justify-between flex-col-reverse text-center lg:text-start lg:flex-row-reverse">
                     <img src="./images/joinforum.png" />
-                    <div>
+                    <div class="mb-8">
                         <h1 class="mb-5 text-5xl text-white font-extrabold"> Join Our Forum</h1>
                         <p class="mb-5 text-xl text-gray-300 font-medium"> Share your favorite opinion and win and wp
                             forum coffee mug! Yes, you can run unit tests and view the results directly within the app.
                         </p>
                         <button
-                            class="flex justify-center items-center text-white text-2xl font-bold text-center rounded-full bg-cyan-500 px-10 py-3 ">Optional</button>
+                            class="flex justify-center items-center text-white text-2xl font-bold text-center rounded-full bg-cyan-500 lg:mx-0 mx-auto px-10 py-3 ">Optional</button>
                     </div>
                 </div>
             </div>
