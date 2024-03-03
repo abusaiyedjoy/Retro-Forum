@@ -1,4 +1,6 @@
 const postContainer = document.getElementById("posts-container");
+const cartContainer = document.getElementById("cart-container");
+
 
 const letsDiscusePost = async () => {
   const response = await fetch(
@@ -7,7 +9,7 @@ const letsDiscusePost = async () => {
   const data = await response.json();
   const allPosts = data.posts;
   allPosts.forEach((post) => {
-    console.log(post)
+    // console.log(post)
     const div = document.createElement("div");
     // div.classList = "flex gap-4 items-start mt-12";
     div.innerHTML = `<div class="w-full mb-12 lg:w-[80%] rounded-3xl shadow-lg p-10 border border-gray-300 bg-gray-100">
@@ -54,3 +56,63 @@ const letsDiscusePost = async () => {
   });
 };
 letsDiscusePost();
+
+
+
+const letestPost = async () => {
+    const response = await fetch(
+      'https://openapi.programming-hero.com/api/retro-forum/latest-posts'
+    );
+    const data = await response.json();
+    const allCarts = data;
+    allCarts.forEach((card) => {
+        const div = document.createElement("div");
+        if(card.author.designation===undefined){
+
+        }
+        div.innerHTML=`
+        <div
+                    class="overflow-hidden rounded-2xl border border-gray-300 shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-5 hover:shadow-2xl cursor-pointer">
+                    <a href="#" class="w-full block h-full">
+                        <div class="m-3 bg-gray-200 rounded-2xl h-[250px]">
+                            <img alt=""
+                                src="${card.cover_image}"
+                                class=" w-full h-full object-cover rounded-2xl" />
+                        </div>
+                        <div class="bg-white w-full p-4">
+                            <div class="flex items-center my-2 gap-4">
+                                <i class="fa-regular fa-calendar"></i>
+                                <p class="text-xl text-gray-500">No publish date.</p>
+                            </div>
+                            <p class=" text-2xl font-medium mb-4 ">${card.title}</p>
+                            <p class=" text-lg mb-4 text-gray-500">${card.description}
+                            </p>
+                            <hr class="bg-gray-600">
+                            <div class="flex items-center mt-2 mb-4">
+                                <img class='w-10 h-10 object-cover rounded-full' alt='User avatar'
+                                    src='${card.profile_image}'>
+
+                                <div class="pl-3">
+                                    <div class="font-medium">${card.author.name}</div>
+                                    <div class="text-gray-600 text-sm">${card.author.designation}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        `
+        cartContainer.appendChild(div)
+      console.log(card)
+    })
+};
+letestPost()
+
+
+const searchItem=()=>{
+    const inputValue = document.getElementById("inputSearch").value;
+    if(inputValue){
+        letsDiscusePost(inputValue)
+    }else{
+        alert('Please provide a valid input')
+    }
+}
