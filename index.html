@@ -1,26 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro-Forum</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <!-- tailwind and daisy -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
     <!-- Header Section -->
-    <Header>
-
+    <Header class="container mx-auto">
+        <Nav class="mt-10 flex justify-between items-center">
+            <div>
+                <img src="./images/logo.png" alt="">
+            </div>
+            <div class="mt-5 flex justify-center items-center gap-3">
+                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+                    <button class="btn w-full h-full rounded-full">me</button>
+                </div>
+                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+                    <button class="btn w-full h-full rounded-full">me</button>
+                </div>
+                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+                    <button class="btn w-full h-full rounded-full">me</button>
+                </div>
+                <div class="tooltip w-[62px] h-[62px]" data-tip="hello">
+                    <button class="btn w-full h-full rounded-full">me</button>
+                </div>
+                <div>
+                    <button class="btn btn-primary text-xl px-8 font-bold text-center rounded-full">Click me</button>
+                </div>
+            </div>
+        </Nav>
+        <!-- Banner Section -->
+        <div class="my-12 p-20 rounded-3xl bg-[#12132D] bg-no-repeat bg-cover"
+            style="background-image: url('./images/bgbanner.png');">
+            <div>
+                <div class="hero-content flex justify-between flex-col lg:flex-row-reverse">
+                    <div class="bg-white w-[420px] rounded-3xl p-12">
+                        <div class="flex justify-between mb-8">
+                            <h1 class="text-3xl font-bold">Registered Users</h1>
+                            <p class="text-3xl font-bold">01</p>
+                        </div>
+                        <div class="flex justify-between mb-8">
+                            <h1 class="text-3xl font-bold">Forum</h1>
+                            <p class="text-3xl font-bold">01</p>
+                        </div>
+                        <div class="flex justify-between mb-8">
+                            <h1 class="text-3xl font-bold">Topics</h1>
+                            <p class="text-3xl font-bold">01</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <h1 class="text-3xl font-bold">Replies</h1>
+                            <p class="text-3xl font-bold">01</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="mb-5 text-7xl text-white font-extrabold"> Welcome to the <br><span
+                                class="">ReTro</span>
+                            Forum</h1>
+                        <p class="mb-5 text-xl text-gray-300 font-medium"> Share your favorite opinion and win and wp
+                            <br>
+                            forum coffee mug!
+                        </p>
+                        <label class="input relative w-[80%] flex items-center gap-2">
+                            <input type="text" class="grow mr-32 pl-4" placeholder="Search" />
+                            <span
+                                class="rounded-xl flex justify-center items-center text-white text-lg font-medium text-center absolute right-0 top-0 bottom-0 bg-cyan-500 px-6 ">Optional</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </Header>
-    <!-- Main Section -->
-    <Main>
 
-    </Main>
-    <!-- Footer Section -->
-    <Footer>
-
-    </Footer>
     <script src="./Script/index.js"></script>
 </body>
+
 </html>
