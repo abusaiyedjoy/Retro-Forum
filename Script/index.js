@@ -2,6 +2,7 @@ const searchText = document.getElementById("inputSearch");
 const postContainer = document.getElementById("posts-container");
 const cartContainer = document.getElementById("cart-container");
 const selectedCategory = document.getElementById("selected-category");
+let count = 0;
 
 const getPost = async (category) => {
   if (category) {
@@ -34,6 +35,8 @@ const filteredPost = (event) => {
 };
 
 const postByCategory = async (allPosts) => {
+  showSpinner()
+  await new Promise(resolve => setTimeout(resolve, 2000));
   allPosts.forEach((post) => {
     const div = document.createElement("div");
     div.innerHTML = `<div class="w-full mb-12 lg:w-[80%] rounded-3xl shadow-lg p-10 border border-gray-300 bg-gray-100">
@@ -88,17 +91,19 @@ const postByCategory = async (allPosts) => {
 
     postContainer.appendChild(div);
   });
+  hideSpinner()
 };
 
 const myFunction = (title,viewCount) => {
-  console.log("")
+  count++;
+  document.getElementById("numberCount").innerText=count;
   const div = document.createElement("div");
   div.innerHTML = `
   <div class="flex justify-between items-center gap-4 mb-4 rounded-2xl p-4 bg-white">
-      <h1 class="text-2xl font-medium">${title}</h1>
+      <h1 class="text-xl font-medium">${title}</h1>
       <div class="flex items-center gap-1 justify-center">
           <i class="fa-regular fa-eye"></i>
-          <p class="text-2xl font-medium">${viewCount}</p>
+          <p class="text-xl font-medium">${viewCount}</p>
       </div>
   </div>
 `;
@@ -160,3 +165,18 @@ const latestPost = async () => {
   });
 };
 latestPost();
+
+
+
+
+// Function to show the spinner
+const showSpinner = () => {
+  const spinner = document.getElementById("spinner");
+  spinner.classList.remove("hidden");
+};
+
+// Function to hide the spinner
+const hideSpinner = () => {
+  const spinner = document.getElementById("spinner");
+  spinner.classList.add("hidden");
+};
