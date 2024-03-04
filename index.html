@@ -79,12 +79,15 @@
                             <br class="hidden sm:block">
                             forum coffee mug!
                         </p>
-                        <label class="input relative w-full lg:w-[80%] flex items-center gap-2">
-                            <input id="inputSearch" type="text" class="grow mr-32 pl-4"
+                        <form onsubmit="filteredPost(event)" id="search-container"
+                            class="input bg-transparent relative w-full lg:w-[80%] flex items-center left-0 justify-start">
+
+                            <input required id="inputSearch" type="text" class="grow input join-item  pl-4"
                                 placeholder="Search here anything" />
-                            <button onclick="searchItem()"
-                                class="rounded-xl btn flex justify-center items-center text-white text-base font-bold text-center absolute right-0 top-0 bottom-0 hover:bg-cyan-500 bg-cyan-500 px-6 ">Search</button>
-                        </label>
+
+                            <button type="submit"
+                                class="rounded-xl btn flex justify-center items-center text-white text-base font-bold text-center absolute right-4 top-0 bottom-0 hover:bg-cyan-500 bg-cyan-500 px-6 ">Search</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -144,7 +147,8 @@
                 integrated testing features allow for a streamlined.</p>
         </div>
         <section class="my-20">
-            <div id="cart-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            <div id="cart-container" class="grid  items-stretch grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 "
+                style="align-items: stretch;">
                 <!-- card -->
 
             </div>
