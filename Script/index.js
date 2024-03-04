@@ -33,47 +33,55 @@ const filteredPost = (event) => {
   postContainer.innerHTML = "";
   getPost(searchText.value);
 };
-
+// Get all the post item
 const postByCategory = async (allPosts) => {
-  showSpinner()
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  showSpinner();
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   allPosts.forEach((post) => {
     const div = document.createElement("div");
     div.innerHTML = `<div class="w-full mb-12 lg:w-[80%] rounded-3xl shadow-lg p-10 border border-gray-300 bg-gray-100">
-    <div class=" flex gap-4 items-start">
+    <div class=" flex flex-col md:flex-row justify-start gap-4 items-start">
         <div class="w-[70px] h-[70px] rounded-2xl bg-gray-100 mt-3">
             <div class="relative indicator w-full h-full flex justify-center items-center">
                 <span class="absolute top-1 right-1 indicator-item badge"></span>
-                <div class="grid place-items-center"><img class=" rounded-xl" src="${post.image}" alt=""></div>
+                <div class="grid place-items-center"><img class=" rounded-xl" src="${
+                  post.image
+                }" alt=""></div>
             </div>
         </div>
         <div class="w-full gap-4 bg-gray-100 flex flex-col p-3">
-            <div class="flex gap-8 item-center">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8 item-center">
                 <p class=" font-medium text-xl">#${post.category}</p>
                 <div class="flex items-center">
-                    <p class="text-gray-600 font-medium text-xl ml-1">Author: ${post.author.name}</p>
+                    <p class="text-gray-600 font-medium text-xl ml-1">Author: ${
+                      post.author.name
+                    }</p>
                 </div>
             </div>
-            <h3 class="font-black text-gray-800 md:text-3xl text-xl">${post.title}</h3>
-            <p class="md:text-lg text-gray-500 text-base">${post.description}</p>
+            <h3 class="font-black text-gray-800 md:text-2xl text-xl">${
+              post.title
+            }</h3>
+            <p class="md:text-lg text-gray-500 text-base">${
+              post.description
+            }</p>
             <hr class="bg-gray-600 border-dashed">
             <div class="flex justify-between items-center">
-                <div class="flex gap-7">
-                    <div class="flex items-center gap-3">
+                <div class="flex gap-3 md:gap-7">
+                    <div class="flex flex-col sm:flex-row items-center gap-3">
                         <i class="fa-regular fa-message"></i>
-                        <p class="text-xl">${post.comment_count}</p>
+                        <p class="text-lg md:text-xl">${post.comment_count}</p>
                     </div>
-                    <div class="flex items-center gap-3">
+                    <div class="flex flex-col sm:flex-row items-center gap-3">
                         <i class="fa-regular fa-eye"></i>
-                        <p class="text-xl">${post.view_count}</p>
+                        <p class="text-lg md:text-xl">${post.view_count}</p>
                     </div>
-                    <div class="flex items-center gap-3">
+                    <div class="flex flex-col sm:flex-row items-center gap-3">
                         <i class="fa-regular fa-clock"></i>
-                        <p class="text-xl">${post.posted_time} min</p>
+                        <p class="text-lg md:text-xl">${post.posted_time} min</p>
                     </div>
                 </div>
                 <div>
-                <img class="cursor-pointer" src="./images/Group 40106.png" alt="" onclick="myFunction('${post.title}', ${post.view_count})">
+                <img class="cursor-pointer" src="./images/Group 40106.png" alt="" onclick='myFunction(${JSON.stringify(post.title)}, "${post.view_count}")'>
                 </div>
             </div>
         </div>
@@ -91,12 +99,12 @@ const postByCategory = async (allPosts) => {
 
     postContainer.appendChild(div);
   });
-  hideSpinner()
+  hideSpinner();
 };
 
-const myFunction = (title,viewCount) => {
+const myFunction = (title, viewCount) => {
   count++;
-  document.getElementById("numberCount").innerText=count;
+  document.getElementById("numberCount").innerText = count;
   const div = document.createElement("div");
   div.innerHTML = `
   <div class="flex justify-between items-center gap-4 mb-4 rounded-2xl p-4 bg-white">
@@ -165,9 +173,6 @@ const latestPost = async () => {
   });
 };
 latestPost();
-
-
-
 
 // Function to show the spinner
 const showSpinner = () => {
