@@ -1,6 +1,7 @@
 const searchText = document.getElementById("inputSearch");
 const postContainer = document.getElementById("posts-container");
 const cartContainer = document.getElementById("cart-container");
+const selectedCategory = document.getElementById("selected-category");
 
 const getPost = async (category) => {
   if (category) {
@@ -35,13 +36,12 @@ const filteredPost = (event) => {
 const postByCategory = async (allPosts) => {
   allPosts.forEach((post) => {
     const div = document.createElement("div");
-    // div.classList = "flex gap-4 items-start mt-12";
     div.innerHTML = `<div class="w-full mb-12 lg:w-[80%] rounded-3xl shadow-lg p-10 border border-gray-300 bg-gray-100">
-    <div class="relative flex gap-4 items-start">
+    <div class=" flex gap-4 items-start">
         <div class="w-[70px] h-[70px] rounded-2xl bg-gray-100 mt-3">
-            <div class="indicator w-full h-full flex justify-center items-center">
-                <span class="indicator-item badge bg-green-500"></span>
-                <div class="grid place-items-center"><img class="w-full h-full rounded-xl" src="${post.image}" alt=""></div>
+            <div class="relative indicator w-full h-full flex justify-center items-center">
+                <span class="absolute top-1 right-1 indicator-item badge"></span>
+                <div class="grid place-items-center"><img class=" rounded-xl" src="${post.image}" alt=""></div>
             </div>
         </div>
         <div class="w-full gap-4 bg-gray-100 flex flex-col p-3">
@@ -70,14 +70,40 @@ const postByCategory = async (allPosts) => {
                     </div>
                 </div>
                 <div>
-                    <img src="./images/Group 40106.png" alt="">
+                <img class="cursor-pointer" src="./images/Group 40106.png" alt="" onclick="myFunction('${post.title}', ${post.view_count})">
                 </div>
             </div>
         </div>
     </div>
 </div>`;
+
+    const indicator = div.querySelector(".indicator-item");
+    if (post.isActive === true) {
+      indicator.classList.remove("bg-red-500");
+      indicator.classList.add("bg-green-500");
+    } else {
+      indicator.classList.add("bg-red-500");
+      indicator.classList.remove("bg-green-500");
+    }
+
     postContainer.appendChild(div);
   });
+};
+
+const myFunction = (title,viewCount) => {
+  console.log("")
+  const div = document.createElement("div");
+  div.innerHTML = `
+  <div class="flex justify-between items-center gap-4 mb-4 rounded-2xl p-4 bg-white">
+      <h1 class="text-2xl font-medium">${title}</h1>
+      <div class="flex items-center gap-1 justify-center">
+          <i class="fa-regular fa-eye"></i>
+          <p class="text-2xl font-medium">${viewCount}</p>
+      </div>
+  </div>
+`;
+
+  selectedCategory.appendChild(div);
 };
 
 const latestPost = async () => {
